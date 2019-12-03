@@ -50,10 +50,14 @@
 ### ```function totalSupply() public view returns(uint256) {}```
 ->  Function which returns the amount of tokens in existence
 
-### ```function balanceOf(address _owner) public veiw returns(uint256)```
-function which shows the balance of the `msg.sender`
+### ```function balanceOf(address account) public veiw returns(uint256)```
+function which shows the balance of the account
 
-### ```function transfer(uint _price, address _fan, address _musician) public returns(bool)```
+### ```function transfer(address recipient, uint256 amount) public returns(bool)```
+function which transfer certain amount of token(_price) from musician to fan if balance of musician should be bigger than the _price.
+then emit `Transfer` event
+
+### ```function transferFrom(address sender, address recipient, uint256 amount) public returns(bool)```
 function which transfer certain amount of token(_price) from musician to fan if balance of musician should be bigger than the _price.
 then emit `Transfer` event
 
@@ -70,11 +74,11 @@ then emit `Transfer` event
 
 ### ```value```
 
--> ERC20ABI : 배포된 Smart Contract ERC20ABI
--> contractAddress -> 배포된 Smart Contract Address 
--> defaultAddress -> 배포된 Smart Contract Address default acount의 address
--> defaultPrivateKey -> 배포된 Smart Contract Address default acount의 privatekey
--> userAddress -> 로그인 되어있는 해당 유저의 address 
+- ERC20ABI : 배포된 Smart Contract ERC20ABI
+- contractAddress -> 배포된 Smart Contract Address 
+- defaultAddress -> 배포된 Smart Contract Address default acount의 address
+- defaultPrivateKey -> 배포된 Smart Contract Address default acount의 privatekey
+- userAddress -> 로그인 되어있는 해당 유저의 address 
 
 
 ### ```App.callContractSupply```
