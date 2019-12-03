@@ -1,24 +1,21 @@
-const Fancy = artifacts.require('./Fancy.sol')
 const fs = require('fs')
+const Fancy = artifacts.require('./Fancy.sol')
 
 module.exports = function (deployer) {
-    deployer.deploy(Fancy)
-    .then(() => {
-        if(Fancy._json) {
-            fs.writeFile(
-                'deployedABI',
-                JSON.stringify(Fancy._json.abi, 2),
-                (err) => {
-                    if(err) throw err
-                    console.log(`The abi of ${Fancy._json.contractName} is recorded on deployedABI file`)
-                })
-        }
-        fs.writeFile(
-            'deployedAddress',
-            Fancy.address,
-            (err) => {
-                if(err) throw err
-                console.log(`The deployed contract address * ${Fancy.address} * is recorded on deployedAddress file`)
-            })
+  deployer.deploy(Fancy)
+  .then(() => {
+    if (Fancy._json) {
+      fs.writeFile('deployABI', JSON.stringify(Fancy._json.abi),
+      (err) => {
+        if (err) throw err;
+        console.log("SUCCESS FOR ABI FILE LOADED")
+      })
+    }
+
+    fs.writeFile('deployedAddress', Fancy.address,
+    (err) => {
+      if(err) throw err;
+      console.log("SUCCESS FOR ADDRESS FILE LOADED")
     })
+  })
 }
